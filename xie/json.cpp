@@ -1,4 +1,5 @@
 #include "json.h"
+#include "parser.h"
 #include <sstream>
 #include <iostream>
 
@@ -310,4 +311,10 @@ void Json::remove(const char *key)
 {
   std::string name(key);
   remove(name);
+}
+void Json::parse(const std::string &str)
+{
+  Parser p;
+  p.load(str);
+  *this = p.parse();
 }

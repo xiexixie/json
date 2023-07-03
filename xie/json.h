@@ -70,6 +70,7 @@ namespace xie
       void remove(int index);
       void remove(const char *key);
       void remove(const std::string &key);
+      void parse(const std::string &str);
 
     private:
       union Value
