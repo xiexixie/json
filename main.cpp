@@ -1,19 +1,20 @@
 #include <iostream>
+#include <fstream>
+#include <sstream>
 #include "json.h"
 
 using namespace xie::json;
 
 int main()
 {
-  Json arr;
-  arr[0] = true;
-  arr[1] = 123;
-  arr.append(1.23);
-  arr.append("hello");
-
-  bool b = arr[0];
-  int i = arr[1];
-  double d = arr[2];
-  const std::string &s = arr[3];
+  // const std::string &str = "{\"a\":\"world\",\"b\":[1,2,3,true,\"qqq\"],\"hello\":null}";
+  std::ifstream fin("./test.json");
+  std::stringstream ss;
+  ss << fin.rdbuf();
+  const std::string &str = ss.str();
+  Json v;
+  v.parse(str);
+  Json a = v["tasks"]["args"];
+  std::cout << a.str();
   return 0;
 }
