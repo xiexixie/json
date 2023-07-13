@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <map>
+// #include <iostream>
 
 namespace xie
 {
@@ -31,7 +32,11 @@ namespace xie
       Json(const char *value);
       Json(const Json &other);
       Json(Type type);
-
+      // ~Json()
+      // {
+      //   clear();
+      //   std::cout << "delete" << std::endl;
+      // }
       // 将类转换为其他类型的转换函数,隐式转换
       operator bool();
       operator int();

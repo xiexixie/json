@@ -16,5 +16,7 @@ int main()
   v.parse(str);
   Json a = v["tasks"]["args"];
   std::cout << a.str();
+  a.clear();
+  v.clear();
   return 0;
 }
